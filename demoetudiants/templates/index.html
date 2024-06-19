@@ -9,30 +9,21 @@
 <body>
     <div class="container">
         <div class="row mt-4">
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Etudiant 1</h5>
-                      <p class="card-text">Description</p>
+
+            {% for etudiant in etudiants %}
+                <div class="col-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ etudiant.prenom }}  {{ etudiant.nom }}  </h5>
+                        <p class="card-text">{{ etudiant.description }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Etudiant 2</h5>
-                      <p class="card-text">Description</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Etudiant 3</h5>
-                      <p class="card-text">Description</p>
-                    </div>
-                </div>
-            </div>
+            {% empty %}
+                <p class="alert alert-info text-center w-100">Pas d'etudiants dans la base de donnée</p>
+            {% endfor %}
+            
+          
         </div>
     </div>
 

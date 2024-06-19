@@ -1,8 +1,11 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
 
+from etudiants.models import Etudiants
+
 def index(request):
-    return render(request,"index.html")
+    etudiants = Etudiants.objects.all()
+    return render(request,"index.html",{"etudiants":etudiants})
 
 def contact(request):
     return HttpResponse("Bienvenue sur la page contact")
